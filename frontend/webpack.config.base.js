@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'app.bundle.js',
+    filename: 'static/bundle.[contenthash].js',
   },
   module: {
     rules: [
@@ -21,7 +21,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
+  plugins: [new HtmlWebpackPlugin({ template: './src/index.html', filename: 'static/index.html' })],
   resolve: {
     fallback: {
       crypto: false,

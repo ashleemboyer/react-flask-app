@@ -5,7 +5,7 @@ app = Flask(__name__, static_url_path='/static')
 
 @app.route('/')
 def index():
-  return send_from_directory('', 'index.html')
+  return send_from_directory('static', 'index.html')
 
 @app.route('/api/currentTime')
 def currentTime():
