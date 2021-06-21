@@ -6,6 +6,12 @@ module.exports = merge(baseConfig, {
   devServer: {
     open: true,
     port: 9000,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        secure: false,
+      },
+    },
   },
   devtool: 'source-map',
 });
