@@ -1,8 +1,10 @@
+root=$(pwd)
+
 # Tell Flask where the entry point is
-export FLASK_APP=backend/app
+export FLASK_APP=$root/backend/app
 
 # Change to frontend directory
-cd frontend
+cd $root/frontend
 
 # Install the frontend dependencies
 yarn
@@ -11,11 +13,10 @@ yarn
 yarn build
 
 # Change directories out of the frontend
-cd ..
+cd $root/backend/static
 
 # Copy frontend build into backend/static
-cp frontend/dist/app.bundle.js backend/static/app.bundle.js
-cp frontend/dist/index.html backend/static/index.html
+cp $root/frontend/dist/static/* $root/backend/static/
 
 # Start backend server
-flask run
+flask run && cd $root
